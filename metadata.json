@@ -1,0 +1,6 @@
+{
+  "name": "Taxi Pizza – بيتزا تاكسي | Tozeur, Tunisie",
+  "description": "Pizzeria artisanale à Tozeur. Pizzas savoureuses, calzones et livraison rapide via WhatsApp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
