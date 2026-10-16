@@ -77,12 +77,24 @@ const AppContext = createContext<AppContextType | null>(null);
 
 const STORAGE_KEYS = {
   LANGUAGE: 'taxipizza_lang',
-  PRODUCTS: 'taxipizza_products',
+  PRODUCTS: 'taxipizza_products_v2',
   SETTINGS: 'taxipizza_settings',
   ORDERS: 'taxipizza_orders',
   CART: 'taxipizza_cart',
   ADMIN_AUTH: 'taxipizza_admin_session'
 };
+
+const defaultImageMap: Record<string, string> = {};
+INITIAL_PRODUCTS.forEach(p => {
+  defaultImageMap[p.id] = p.image;
+});
+
+function resolveValidImage(id: string, img?: string): string {
+  if (!img || img.startsWith('/src/assets/') || img.includes('unsplash.com')) {
+    return defaultImageMap[id] || INITIAL_PRODUCTS[0].image;
+  }
+  return img;
+}
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Language
@@ -95,13 +107,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   });
 
-  // Products
+  // Products with automatic repair for any cached invalid paths
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+      const savedV2 = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+      const savedOld = localStorage.getItem('taxipizza_products');
+      const saved = savedV2 || savedOld;
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map((p: Product) => ({
+            ...p,
+            image: resolveValidImage(p.id, p.image)
+          }));
+        }
       }
     } catch (e) {
       console.error('Error loading products from localStorage:', e);

@@ -94,6 +94,9 @@ export const ProductDetailModal: React.FC = () => {
             src={product.image}
             alt={title}
             referrerPolicy="no-referrer"
+            onError={(e) => {
+              e.currentTarget.src = '/images/hero_pizza.jpg';
+            }}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#17181c] via-[#17181c]/30 to-transparent" />

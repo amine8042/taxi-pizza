@@ -5,7 +5,9 @@ import {
   SPECIAL_PIZZA,
   CHEESE_PIZZA,
   CALZONE_PIZZA,
-  AMBIANCE_IMG
+  AMBIANCE_IMG,
+  DRINKS_IMG,
+  DESSERT_IMG
 } from '../data/initialData.ts';
 import { X, ZoomIn } from 'lucide-react';
 
@@ -65,11 +67,19 @@ export const GalleryPage: React.FC = () => {
     },
     {
       id: 'g6',
-      image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=900&auto=format&fit=crop&q=80',
-      titleFr: 'Pâte à Pizza Maturée 48 Heures',
-      titleAr: 'عجين البيتزا المختمر 48 ساعة',
-      descFr: 'Farine sélectionnée et temps de repos maîtrisé pour une digestibilité parfaite.',
-      descAr: 'طحين فاخر وتخمير دقيق لسهولة الهضم والقرمشة المثالية.'
+      image: DESSERT_IMG,
+      titleFr: 'Tiramisu Artisanal & Douceurs',
+      titleAr: 'تيراميسو وتحليات منزلية طازجة',
+      descFr: 'Crème mascarpone fondante, café serré et cacao pur préparés chaque jour.',
+      descAr: 'كريمة ماسكاربوني، قهوة فاخرة وكاكاو طبيعي محضر طازجاً كل يوم.'
+    },
+    {
+      id: 'g7',
+      image: DRINKS_IMG,
+      titleFr: 'Boissons Rafraîchissantes & Cidre Boga',
+      titleAr: 'مشروبات منعشة وبوغة تونسية',
+      descFr: 'Servies bien fraîches avec glaçons et tranche de citron.',
+      descAr: 'تقدم باردة جداً مع مكعبات الثلج وشرائح الليمون.'
     }
   ];
 

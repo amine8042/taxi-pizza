@@ -104,6 +104,9 @@ export const HomePage: React.FC = () => {
                   src={HERO_PIZZA}
                   alt="Taxi Pizza Tozeur - Pizza artisanale au four"
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    e.currentTarget.src = '/images/hero_pizza.jpg';
+                  }}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -287,6 +290,9 @@ export const HomePage: React.FC = () => {
                 src={AMBIANCE_IMG}
                 alt="Ambiance conviviale chez Taxi Pizza Tozeur"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/ambiance.jpg';
+                }}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

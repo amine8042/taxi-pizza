@@ -63,6 +63,9 @@ export const AboutPage: React.FC = () => {
               src={AMBIANCE_IMG}
               alt="Intérieur chaleureux de Taxi Pizza Tozeur"
               referrerPolicy="no-referrer"
+              onError={(e) => {
+                e.currentTarget.src = '/images/ambiance.jpg';
+              }}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />

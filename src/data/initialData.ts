@@ -1,13 +1,23 @@
 import { Product, RestaurantSettings, Order } from '../types.ts';
 
-// Standard generated images
-const HERO_PIZZA = '/src/assets/images/hero_pizza_woodfired_1792116880280.jpg';
-const SPECIAL_PIZZA = '/src/assets/images/pizza_special_tozeur_1792116880384.jpg';
-const CHEESE_PIZZA = '/src/assets/images/pizza_four_cheese_1792116882001.jpg';
-const CALZONE_PIZZA = '/src/assets/images/pizza_calzone_rustic_1792116881938.jpg';
-const AMBIANCE_IMG = '/src/assets/images/restaurant_ambiance_tozeur_1792116881240.jpg';
+// Direct ESM imports so Vite bundles and resolves the assets properly in dev and production
+import HERO_PIZZA from '../assets/images/hero_pizza_woodfired_1792116880280.jpg';
+import SPECIAL_PIZZA from '../assets/images/pizza_special_tozeur_1792116880384.jpg';
+import CHEESE_PIZZA from '../assets/images/pizza_four_cheese_1792116882001.jpg';
+import CALZONE_PIZZA from '../assets/images/pizza_calzone_rustic_1792116881938.jpg';
+import AMBIANCE_IMG from '../assets/images/restaurant_ambiance_tozeur_1792116881240.jpg';
+import DRINKS_IMG from '../assets/images/boisson_fraiche_1792118327719.jpg';
+import DESSERT_IMG from '../assets/images/dessert_tiramisu_1792118327743.jpg';
 
-export { HERO_PIZZA, SPECIAL_PIZZA, CHEESE_PIZZA, CALZONE_PIZZA, AMBIANCE_IMG };
+export {
+  HERO_PIZZA,
+  SPECIAL_PIZZA,
+  CHEESE_PIZZA,
+  CALZONE_PIZZA,
+  AMBIANCE_IMG,
+  DRINKS_IMG,
+  DESSERT_IMG
+};
 
 export const DEFAULT_SIZES = [
   { name: 'm', label: 'Moyenne (30 cm)', labelAr: 'متوسطة (30 سم)', priceDelta: 0 },
@@ -218,7 +228,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     availableExtras: PIZZA_EXTRAS
   },
 
-  // Boissons
+  // Boissons (using our freshly generated high-res local asset DRINKS_IMG)
   {
     id: 'boisson-coca',
     nameFr: 'Coca-Cola Frais (Canette 33cl)',
@@ -227,7 +237,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     descriptionAr: 'مشروب غازي منعش يقدم بارداً جداً.',
     category: 'boisson',
     price: 3.0,
-    image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600&auto=format&fit=crop&q=80',
+    image: DRINKS_IMG,
     available: true
   },
   {
@@ -238,7 +248,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     descriptionAr: 'المشروب الغازي التونسي الكلاسيكي بنكهة الخروب المنعشة.',
     category: 'boisson',
     price: 3.0,
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=600&auto=format&fit=crop&q=80',
+    image: DRINKS_IMG,
     available: true
   },
   {
@@ -249,11 +259,11 @@ export const INITIAL_PRODUCTS: Product[] = [
     descriptionAr: 'مياه معدنية طبيعية نقية من الينابيع التونسية.',
     category: 'boisson',
     price: 2.0,
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=600&auto=format&fit=crop&q=80',
+    image: DRINKS_IMG,
     available: true
   },
 
-  // Desserts
+  // Desserts (using our freshly generated high-res local asset DESSERT_IMG)
   {
     id: 'dessert-tiramisu',
     nameFr: 'Tiramisu Artisanal au Café & Cacao',
@@ -262,7 +272,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     descriptionAr: 'محضر طازجاً كل صباح : بسكويت مشرب بالقهوة الإسبريسو، ماسكاربوني غني ورشة كاكاو مر.',
     category: 'dessert',
     price: 7.5,
-    image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=600&auto=format&fit=crop&q=80',
+    image: DESSERT_IMG,
     available: true,
     isFeatured: true
   },
@@ -274,7 +284,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     descriptionAr: 'عجينة بيتزا هشة مخبوزة على الفور، مغطاة بشوكولاتة نوتيلا دافئة ورقائق لوز محمص.',
     category: 'dessert',
     price: 11.0,
-    image: 'https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&auto=format&fit=crop&q=80',
+    image: DESSERT_IMG,
     available: true
   }
 ];
